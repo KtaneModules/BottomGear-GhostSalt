@@ -58,12 +58,12 @@ public class BottomGearScript : MonoBehaviour
         ThisIsTheCurrentTweetThatTheModuleIsOn = (ThisIsTheCurrentTweetThatTheModuleIsOn + ThisIsSupposedToBeAShuffledVersionOfTheAboveStringArray.Length - 1) % ThisIsSupposedToBeAShuffledVersionOfTheAboveStringArray.Length;
         ThisIsTheTextThatIsDisplayedOnTheModule.text = ThisIsSupposedToBeAShuffledVersionOfTheAboveStringArray[ThisIsTheCurrentTweetThatTheModuleIsOn];
         Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, ThisIsTheLeftButtonOnTheModule.transform);
+        ThisIsTheLeftButtonOnTheModule.AddInteractionPunch(0.5f);
         for (int i = 0; i < 3; i++)
         {
             ThisIsTheLeftButtonOnTheModule.transform.localPosition -= new Vector3(0, 0.01f, 0);
             yield return new WaitForSeconds(0.01f);
         }
-        ThisIsTheLeftButtonOnTheModule.AddInteractionPunch(0.5f);
         for (int i = 0; i < 3; i++)
         {
             ThisIsTheLeftButtonOnTheModule.transform.localPosition += new Vector3(0, 0.01f, 0);
@@ -76,12 +76,12 @@ public class BottomGearScript : MonoBehaviour
         ThisIsTheCurrentTweetThatTheModuleIsOn = (ThisIsTheCurrentTweetThatTheModuleIsOn + 1) % ThisIsSupposedToBeAShuffledVersionOfTheAboveStringArray.Length;
         ThisIsTheTextThatIsDisplayedOnTheModule.text = ThisIsSupposedToBeAShuffledVersionOfTheAboveStringArray[ThisIsTheCurrentTweetThatTheModuleIsOn];
         Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonRelease, ThisIsTheRightButtonOnTheModule.transform);
+        ThisIsTheRightButtonOnTheModule.AddInteractionPunch(0.5f);
         for (int i = 0; i < 3; i++)
         {
             ThisIsTheRightButtonOnTheModule.transform.localPosition -= new Vector3(0, 0.01f, 0);
             yield return new WaitForSeconds(0.01f);
         }
-        ThisIsTheRightButtonOnTheModule.AddInteractionPunch(0.5f);
         for (int i = 0; i < 3; i++)
         {
             ThisIsTheRightButtonOnTheModule.transform.localPosition += new Vector3(0, 0.01f, 0);
@@ -114,8 +114,8 @@ public class BottomGearScript : MonoBehaviour
         {
             ThisIsTheSubmitButtonOnTheModule.transform.localPosition -= new Vector3(0, 0.01f, 0);
             yield return new WaitForSeconds(0.01f);
-        }
         ThisIsTheSubmitButtonOnTheModule.AddInteractionPunch(0.5f);
+        }
         for (int i = 0; i < 3; i++)
         {
             ThisIsTheSubmitButtonOnTheModule.transform.localPosition += new Vector3(0, 0.01f, 0);
@@ -124,7 +124,7 @@ public class BottomGearScript : MonoBehaviour
     }
 
 #pragma warning disable 414
-    private string TwitchHelpMessage = "Use '!{0} 1234567890' to type in 1234567890 and use '!{0} submit' to press the 'GO' button.";
+    private string TwitchHelpMessage = "Use '!{0} left' to press the left button. Use '!{0} right' to press the right button. Use '!{0} submit' to press the submit button.";
 #pragma warning restore 414
 
     IEnumerator ProcessTwitchCommand(string ThisIsTheCommandThatIsSentThroughTwitch)
